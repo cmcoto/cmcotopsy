@@ -64,6 +64,11 @@ export const Pages: CollectionConfig<'pages'> = {
       required: true,
     },
     {
+      name: 'local',
+      type: 'text',
+      required: true,
+    },
+    {
       type: 'tabs',
       tabs: [
         {

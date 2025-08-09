@@ -21,6 +21,42 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  // FOR LOCALIZATION (CMCOTO agregado por mi...)
+  localization: {
+    locales: ['en', 'es', 'de'], // required
+    defaultLocale: 'en', // required
+    //Filter for available locales
+    filterAvailableLocales: async ({ req, locales }) => {
+      return locales
+    },
+  },
+  // Yo agregue..Your collections with localize  fields:
+  collections: [
+    {
+      slug: 'pages',
+      fields: [
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+          //NOT localized to keep URLs consistent
+        },
+        {
+          name: 'title',
+          type: 'text',
+          localized: true,
+        },
+        {
+          name: 'content',
+          type: 'richText',
+          localized: true,
+        },
+      ],
+    },
+  ],
+
+  //ADMIN AREA
   admin: {
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
