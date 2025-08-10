@@ -55,13 +55,13 @@ export default async function Page({ params: paramsPromise }: Args) {
   })
 
   // Remove this code once your website is seeded
-  if (!page && slug === 'home') {
+  /*if (!page && slug === 'home') {
     page = '/'
   }
 
   if (!page) {
     return <PayloadRedirects url={url} />
-  }
+  } */
 
   const { hero, layout } = page
 
