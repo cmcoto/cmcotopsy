@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
-import { postgresAdapter } from '@payloadcms/db-postgres'
+//import { postgresAdapter } from '@payloadcms/db-postgres'
+import { sqliteAdapter } from '@payloadcms/db-sqlite'
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -95,11 +96,23 @@ export default buildConfig({
   },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI || '',
+  // db: postgresAdapter({
+  // pool: {
+  // connectionString: process.env.DATABASE_URI || '',
+  // },
+  // }),
+
+  //SQL ADAPTER TOO
+  // Configure the SQLite adapter here
+  db: sqliteAdapter({
+    // SQLite-specific arguments go here.
+    // `client.url` is required.
+    client: {
+      url: process.env.DATABASE_URI || '',
+      //authToken: process.env.DATABASE_AUTH_TOKEN,
     },
   }),
+
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
