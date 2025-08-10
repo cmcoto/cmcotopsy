@@ -37,6 +37,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         </Link>
         <HeaderNav data={data} />
       </div>
+      <link
+        href="https://fonts.cdnfonts.com/css/zai-royal-vogue-typewriter-1929"
+        rel="stylesheet"
+      ></link>
     </header>
   )
 }
