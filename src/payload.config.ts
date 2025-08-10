@@ -109,7 +109,7 @@ export default buildConfig({
     // `client.url` is required.
     client: {
       url: process.env.DATABASE_URI || '',
-      //authToken: process.env.DATABASE_AUTH_TOKEN,
+      authToken: process.env.DATABASE_AUTH_TOKEN || '',
     },
   }),
 
